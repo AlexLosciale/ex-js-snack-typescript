@@ -1,11 +1,31 @@
 import './style.css'
 
 //Snack 1
-//Hai ricevuto un dato generico da un'API, ma non sai di che tipo sia… Il tuo compito è controllare il tipo del dato e stampare il valore in modo corretto.
+//Hai ricevuto un dato generico da un'API, ma non sai di che tipo sia… Il tuo compito è controllare il tipo del dato e stampare il
+//valore in modo corretto.
 //Se è una stringa: stampala in maiuscolo
 //Se è un numero: moltiplicalo per due e stampalo
 //Se è un booleano: stampa “Sì” o “No” in base al suo valore
 //In tutti gli altri casi: stampa “Tipo non supportato”
+
+type ApiResponse = string | number | boolean;
+function handleApiResponse(response: ApiResponse): void {
+  if (typeof response === 'string') {
+    console.log(response.toUpperCase());
+  } else if (typeof response === 'number') {
+    console.log(response * 2);
+  } else if (typeof response === 'boolean') {
+    console.log(response ? 'Sì' : 'No');
+  } else {
+    console.log('Tipo non supportato');
+  }
+}
+const apiResponse1: ApiResponse = "ciao";
+const apiResponse2: ApiResponse = 2;
+const apiResponse3: ApiResponse = true;
+handleApiResponse(apiResponse1);
+handleApiResponse(apiResponse2);
+handleApiResponse(apiResponse3);
 
 
 //Snack 2
@@ -15,6 +35,24 @@ import './style.css'
 //annoNascita → numero
 //sesso → Può essere solo "m" o "f".
 //anniDiServizio (array di numeri, es. [2014, 2015, 2017, 2018])
+
+type Dipendente = {
+  nome: string;
+  cognome: string;
+  annoNascita: number;
+  sesso: 'm' | 'f';
+  anniDiServizio: number[];
+};
+const dipendente: Dipendente = {
+  nome: 'Mario',
+  cognome: 'Rossi',
+  annoNascita: 1990,
+  sesso: 'm',
+  anniDiServizio: [2014, 2015, 2017, 2018]
+};
+
+console.log(dipendente);
+
 
 
 //Snack 3
