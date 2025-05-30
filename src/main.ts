@@ -66,6 +66,40 @@ console.log(dipendente);
 //budgetGestito → Il totale del budget annuale gestito dal PM (opzionale).
 //stakeholderPrincipali → Un array di stringhe con i nomi dei principali stakeholder con cui il PM collabora (può essere vuoto).
 
+type Developer = Dipendente & {
+  livelloEsperienza: 'Junior' | 'Mid' | 'Senior';
+  linguaggi?: string[];
+  certificazioni: string[];
+};
+type ProjectManager = Dipendente & {
+  teamSize: number | null;
+  budgetGestito?: number;
+  stakeholderPrincipali: string[];
+};
+const developer: Developer = {
+  nome: 'Luca',
+  cognome: 'Bianchi',
+  annoNascita: 1992,
+  sesso: 'm',
+  anniDiServizio: [2016, 2017, 2018],
+  livelloEsperienza: 'Mid',
+  linguaggi: ['JavaScript', 'TypeScript'], 
+  certificazioni: ['AWS Certified', 'Scrum Master']
+};
+const projectManager: ProjectManager = {
+  nome: 'Anna',
+  cognome: 'Verdi',
+  annoNascita: 1985,
+  sesso: 'f', 
+  anniDiServizio: [2010, 2011, 2012],
+  teamSize: 5,
+  budgetGestito: 500000,
+  stakeholderPrincipali: ['CEO', 'CTO']
+};
+
+console.log(developer);
+console.log(projectManager);
+
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
